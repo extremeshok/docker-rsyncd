@@ -27,25 +27,34 @@ reverse lookup = no
 transfer logging = yes
 ignore nonreadable = yes
 dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.7z *.7zip *.exe *.rar
-hosts deny = *
-hosts allow = ${ALLOW_IP}
-read only = false
 [NetBackup]
+    hosts deny = *
+    hosts allow = ${ALLOW_IP}
+    read only = false
     path = ${VOLUME}
     comment = NetBackup ${USERNAME} directory
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [data]
+    hosts deny = *
+    hosts allow = ${ALLOW_IP}
+    read only = false
     path = ${VOLUME}
     comment = Data ${USERNAME} directory
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [Backup]
+    hosts deny = *
+    hosts allow = ${ALLOW_IP}
+    read only = false
     path = ${VOLUME}
     comment = Backup ${USERNAME} directory
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [MyCloud]
+    hosts deny = *
+    hosts allow = ${ALLOW_IP}
+    read only = false
     path = ${VOLUME}
     comment = MyCloud ${USERNAME} directory
     auth users = ${USERNAME}
