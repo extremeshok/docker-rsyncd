@@ -1,15 +1,21 @@
-FROM alpine:latest
+FROM ubuntu:bionic
 
 LABEL maintainer "Adrian Kriel <admin@extremeshok.com>"
 
-RUN apk add --update --no-cache \
-	rsync \
-	bash
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG C.UTF-8
+ENV TZ=UTC
 
+RUN apt-get update && apt-get install -y \
+    rsync \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Setup rsync
 EXPOSE 873/tcp
 
 COPY ./rootfs /
 
-RUN chmod +x /docker-entrypoint.sh
+RUN chmod 744 /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
