@@ -4,7 +4,7 @@ LABEL maintainer "Adrian Kriel <admin@extremeshok.com>"
 
 RUN apk add --update --no-cache \
 	rsync \
-	bash \
+	bash
 
 EXPOSE 873/tcp
 
