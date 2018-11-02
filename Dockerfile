@@ -6,6 +6,9 @@ RUN apk add --update --no-cache \
 	rsync \
 	bash
 
+# Remove the default config
+RUN rm -f /etc/rsyncd.conf
+
 EXPOSE 873/tcp
 
 COPY ./rootfs /
