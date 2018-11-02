@@ -4,7 +4,7 @@ set -e
 
 USERNAME=${USERNAME:-rsync}
 PASSWORD=${PASSWORD:-rsync}
-ALLOW_IP=${ALLOW_IP:*}
+ALLOW_IP=${ALLOW_IP:-*}
 VOLUME=${VOLUME:-/data}
 
 echo "${USERNAME}:${PASSWORD}" > /etc/rsyncd.secrets
@@ -44,16 +44,16 @@ dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.7z *.7zip *.exe *
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [Backup]
-    hosts deny = *
     hosts allow = ${ALLOW_IP}
+    hosts deny = *
     read only = false
     path = ${VOLUME}
     comment = Backup ${USERNAME} directory
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [MyCloud]
-    hosts deny = *
     hosts allow = ${ALLOW_IP}
+    hosts deny = *
     read only = false
     path = ${VOLUME}
     comment = MyCloud ${USERNAME} directory
