@@ -28,6 +28,8 @@ transfer logging = yes
 ignore nonreadable = yes
 dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.7z *.7zip *.exe *.rar
 [NetBackup]
+    uid = root
+    gid = root
     hosts deny = *
     hosts allow = ${ALLOW_IP}
     read only = false
@@ -36,6 +38,8 @@ dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.7z *.7zip *.exe *
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [data]
+    uid = root
+    gid = root
     hosts deny = *
     hosts allow = ${ALLOW_IP}
     read only = false
@@ -44,6 +48,8 @@ dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.7z *.7zip *.exe *
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [Backup]
+    uid = root
+    gid = root
     hosts allow = ${ALLOW_IP}
     hosts deny = *
     read only = false
@@ -52,6 +58,8 @@ dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2 *.7z *.7zip *.exe *
     auth users = ${USERNAME}
     secrets file = /etc/rsyncd.secrets
 [MyCloud]
+    uid = root
+    gid = root
     hosts allow = ${ALLOW_IP}
     hosts deny = *
     read only = false
