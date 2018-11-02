@@ -1,0 +1,11 @@
+###### rsync server
+  extremeshok-rsyncd:
+    image: extremeshok/rsyncd:latest
+    environment:
+      - USERNAME=mda-el
+      - PASSWORD=WlaxsrlzsAg1doy9yDmTenv3jTq3knhg
+    volumes:
+      - ./data/:/data/:rw
+    restart: always
+    ports:
+      - "873:873"
