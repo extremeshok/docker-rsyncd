@@ -50,4 +50,6 @@ cat <<EOF > /etc/rsyncd.conf
       secrets file = /etc/rsyncd.secrets
 EOF
 
+rm -f  /var/run/rsyncd.pid
+
 exec /usr/bin/rsync --no-detach --daemon --config /etc/rsyncd.conf "$@"
