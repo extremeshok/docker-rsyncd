@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM extremeshok/baseimage-ubuntu:latest
 
 LABEL maintainer "Adrian Kriel <admin@extremeshok.com>"
 
@@ -16,6 +16,6 @@ EXPOSE 873/tcp
 
 COPY ./rootfs /
 
-RUN chmod 744 /docker-entrypoint.sh
+RUN chmod 744 /xshok-init.sh
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/init"]

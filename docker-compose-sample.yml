@@ -2,8 +2,8 @@
   extremeshok-rsyncd:
     image: extremeshok/rsyncd:latest
     environment:
-      - USERNAME=mda-el
-      - PASSWORD=WlaxsrlzsAg1doy9yDmTenv3jTq3knhg
+      - USERNAME=myuser
+      - PASSWORD=a_secure_password
     volumes:
       - ./data/:/data/:rw
     restart: always
